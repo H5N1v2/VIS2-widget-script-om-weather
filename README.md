@@ -68,6 +68,6 @@ The design can be adjusted directly within the script in the `<style>` section. 
 * 0.0.1 Initial Release
 
 ## 📄 License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENCE).
 
 ---
