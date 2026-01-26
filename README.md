@@ -3,7 +3,9 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![ioBroker](https://img.shields.io/badge/ioBroker-Visualisation-orange.svg)
 
-A modern, elegant, and highly informative weather widget for ioBroker **VIS2**. This script processes data from the **[Open-Meteo Weather Adapter](https://github.com/H5N1v2/ioBroker.open-meteo-weather)** and generates a responsive HTML widget providing current weather data as well as a 7-day forecast.
+A modern, elegant, simple and highly informative weather widget for ioBroker **VIS2**. This script processes data from the **[Open-Meteo Weather Adapter](https://github.com/H5N1v2/ioBroker.open-meteo-weather)** and generates a responsive HTML widget providing current weather data as well as a 7-day forecast.
+
+![Widget Screenshot](img/screenshot_01.png)
 
 ## ✨ Features
 
