@@ -61,10 +61,9 @@ The design can be adjusted directly within the script in the `<style>` section. 
 ---
 ## Change Log
 
-### **WORK IN PROGRESS**
-* 0.0.1 Initial Release
+## v0.0.1 - 2026-01-26
 
----
+* 0.0.1 Initial Release
 
 ## 📄 License
 This project is licensed under the MIT License.
