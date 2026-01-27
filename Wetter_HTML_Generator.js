@@ -130,7 +130,7 @@ function updateWeatherWidget() {
                     <div class="w-info-item">💧 ${getVal(dpBase + '.current.relative_humidity_2m', "%")}</div>
                     <div class="w-info-item">🌧️ ${getVal(forecast + '.day0.rain_sum', "mm")}</div>
                     <div class="w-info-item">☀️ UV ${getVal(forecast + '.day0.uv_index_max')}</div>
-                    <div class="w-info-item">⏱️ ${getVal(forecast + '.day0.sunshine_duration')}</div>
+                    <div class="w-info-item">⏱️ ${getVal(forecast + '.day0.sunshine_duration', "h")}</div>
                 </div>
             </div>
 
