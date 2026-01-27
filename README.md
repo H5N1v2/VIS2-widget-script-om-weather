@@ -62,6 +62,9 @@ The design can be adjusted directly within the script in the `<style>` section. 
 
 ---
 ## Change Log
+### v0.0.2 - 2026-01-27
+
+* (H5N1v2) fix: add unit to sunshine duration in weather widget
 
 ### v0.0.1 - 2026-01-26
 

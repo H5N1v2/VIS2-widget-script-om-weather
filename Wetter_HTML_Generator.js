@@ -1,4 +1,4 @@
-// version: 0.0.1
+// version: 0.0.2
 
 //////////////////////////////////////////////////
 const locationName = 'locationName'; // <--- Your Location Name from Open-Meteo Adapter
