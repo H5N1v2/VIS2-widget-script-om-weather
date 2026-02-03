@@ -5,12 +5,13 @@
 
 A modern, elegant, simple and highly informative weather widget for ioBroker **VIS2**. This script processes data from the **[Open-Meteo Weather Adapter](https://github.com/H5N1v2/ioBroker.open-meteo-weather)** and generates a responsive HTML widget providing current weather data as well as a 7-day forecast.
 
-![Widget Screenshot](img/screenshot_01.png)
+![Widget Screenshot](img/screenshot.png)
 
 ## ✨ Features
 
 * **Real-time Display:** Current temperature, weather condition (text & icon), humidity, rain amount, and UV index.
 * **7-Day Forecast:** Compact overview of the coming days, including min/max temperatures and precipitation probability.
+* **6-Hours Forecast:** Display the next 6 hours (you must enable & set the forecast hours to min. 6 Hours ), supported from open-meteo-weather v2.2.3 onwards.
 * **Astronomical Data:** Display of sunrise, sunset, and moon phases (icon & text).
 * **Wind Info:** Wind direction and gust visualization using icons.
 * **Multi-language:** Automatic detection of the ioBroker system language (supports 11 languages, including Ukrainian and Chinese).
@@ -24,6 +25,8 @@ A modern, elegant, simple and highly informative weather widget for ioBroker **V
 * **Important:** This widget strictly requires the installed and configured **[Open-Meteo Weather Adapter](https://github.com/H5N1v2/ioBroker.open-meteo-weather)**. The script cannot retrieve weather data without this specific adapter.
 * The **JavaScript Adapter** (Script Engine) must be installed in ioBroker.
 * **Adapter Settings:** In the Open-Meteo Weather adapter settings, the forecast must be set to at least 7 days. Note that the widget displays a maximum of 7 days; if fewer days are configured, the remaining slots will stay empty.
+
+
 
 ### 2. Create Script
 1.  Create a new script in the ioBroker JavaScript adapter.
@@ -62,6 +65,10 @@ The design can be adjusted directly within the script in the `<style>` section. 
 
 ---
 ## Change Log
+### **WORK IN PROGRESS**
+* (H5N1v2) feat: enhance weather widget with hourly forecast and version display
+* (H5N1v2) remove Moonphases description text
+
 ### v0.0.2 - 2026-01-27
 
 * (H5N1v2) fix: add unit to sunshine duration in weather widget
