@@ -65,7 +65,8 @@ The design can be adjusted directly within the script in the `<style>` section. 
 
 ---
 ## Change Log
-### **WORK IN PROGRESS**
+### v0.0.3 - 2026-02-03
+
 * (H5N1v2) feat: enhance weather widget with hourly forecast and version display
 * (H5N1v2) remove Moonphases description text
 

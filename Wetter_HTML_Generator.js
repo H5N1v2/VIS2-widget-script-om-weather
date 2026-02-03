@@ -1,10 +1,10 @@
-// version: 0.0.2
+// version: 0.0.3
 
 //////////////////////////////////////////////////
 const locationName = 'locationName'; // <--- Your Location Name from Open-Meteo Adapter
 //////////////////////////////////////////////////
 
-const version = '0.0.2';
+const version = '0.0.3';
 const dpBase = 'open-meteo-weather.0.' + locationName + '.weather';
 const forecast = dpBase + '.forecast';
 const targetDP = '0_userdata.0.Wetter_Widget_HTML';
