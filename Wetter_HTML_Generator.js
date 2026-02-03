@@ -4,6 +4,7 @@
 const locationName = 'locationName'; // <--- Your Location Name from Open-Meteo Adapter
 //////////////////////////////////////////////////
 
+const version = '0.0.2';
 const dpBase = 'open-meteo-weather.0.' + locationName + '.weather';
 const forecast = dpBase + '.forecast';
 const targetDP = '0_userdata.0.Wetter_Widget_HTML';
@@ -55,7 +56,7 @@ function updateWeatherWidget() {
     function getImg(urlId, size = "20px", className = "") {
         let url = getVal(urlId, "");
         if (url === "" || url === "--") return ""; 
-        return `<img src="${url}" style="width:${size}; height:${size};" class="${className}">`;
+        return `<img src="${url}" style="width:${size}; height:${size}; object-fit:contain;" class="${className}">`;
     }
 
     // CSS Styling
@@ -82,11 +83,23 @@ function updateWeatherWidget() {
         }
         .w-temp-big { font-size: 3.8rem; font-weight: 900; color: #fbbf24; line-height: 1; }
         .w-desc { font-size: 1.1rem; color: #38bdf8; font-weight: 600; }
-        
         .w-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.85rem; margin-top: 10px; }
         .w-info-item { background: rgba(0,0,0,0.2); padding: 6px 10px; border-radius: 10px; display: flex; align-items: center; gap: 5px; }
-
         .w-sun-moon { font-size: 0.8rem; line-height: 1.6; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 15px; }
+
+        .w-hourly {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+            background: rgba(0,0,0,0.15);
+            padding: 10px;
+            border-radius: 15px;
+        }
+        .w-h-item { text-align: center; font-size: 0.75rem; }
+        .w-h-time { font-weight: bold; color: #38bdf8; }
+        .w-h-temp { font-weight: bold; color: #fbbf24; display: block; }
+        .w-h-rain { font-size: 0.65rem; color: #94a3b8; }
 
         .w-forecast {
             display: grid;
@@ -108,18 +121,16 @@ function updateWeatherWidget() {
         .w-fc-temp-max { color: #f87171; font-weight: bold; font-size: 1rem; display: block; }
         .w-fc-temp-min { color: #60a5fa; font-size: 0.85rem; display: block; margin-bottom: 5px; }
         .w-fc-details { font-size: 0.65rem; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 8px; padding-top: 8px; }
-        
         .icon-moon { filter: drop-shadow(0 0 3px #fff); }
     </style>
 
     <div class="w-container">
         <div class="w-header">
             <div style="text-align: center;">
-                <div style="font-size: 1.3rem; font-weight: bold;">${lang.current} ${getVal(forecast + '.day0.name_day')}</div>
+                <div style="font-size: 1.3rem; font-weight: bold;">${lang.current} / ${getVal(forecast + '.day0.name_day')}</div>
                 ${getImg(dpBase + '.current.icon_url', "80px")}
                 <div class="w-desc">${getVal(dpBase + '.current.weather_text')}</div>
             </div>
-
             <div>
                 <div class="w-temp-big">${getVal(dpBase + '.current.temperature_2m', "°")}</div>
                 <div style="font-weight: bold; margin-bottom: 10px;">
@@ -133,8 +144,7 @@ function updateWeatherWidget() {
                     <div class="w-info-item">⏱️ ${getVal(forecast + '.day0.sunshine_duration', "h")}</div>
                 </div>
             </div>
-
-            <div class="w-sun-moon">
+             <div class="w-sun-moon" style="position: relative;">
                 🌅 ${getVal(forecast + '.day0.sunrise')}<br>
                 🌇 ${getVal(forecast + '.day0.sunset')}<br>
                 💨 ${getVal(dpBase + '.current.wind_direction_text')} ${getImg(dpBase + '.current.wind_direction_icon', "35px")}<br>
@@ -142,9 +152,30 @@ function updateWeatherWidget() {
                     ${getImg(forecast + '.day0.moon_phase_icon', "30px", "icon-moon")}
                     ${getImg(dpBase + '.current.wind_gust_icon', "35px")}
                 </div>
+                <div style="position: absolute; bottom: -10px; right: 0; font-size: 0.6rem; color: #475569; opacity: 0.8;">
+                    Script Version ${version}
+                </div>
+              </div>
             </div>
-        </div>
+        <div class="w-hourly">
+    `;
 
+    for (let h = 0; h <= 5; h++) {
+        let hPath = forecast + '.hourly.next_hours.hour' + h;
+        html += `
+            <div class="w-h-item">
+                <div class="w-h-time">${getVal(hPath + '.time')}</div>
+                ${getImg(hPath + '.icon_url', "30px")}
+                <span class="w-h-temp">${getVal(hPath + '.temperature_2m', "°")}</span>
+                <span class="w-h-rain">
+                    🌧️${getVal(hPath + '.precipitation_probability', "%")} / ${getVal(hPath + '.rain', "mm")}
+                </span>
+            </div>
+        `;
+    }
+
+    html += `
+        </div>
         <div class="w-forecast">
     `;
 
@@ -159,12 +190,10 @@ function updateWeatherWidget() {
                 <span class="w-fc-temp-max">${getVal(d + '.temperature_2m_max', "°")}</span>
                 <span class="w-fc-temp-min">${getVal(d + '.temperature_2m_min', "°")}</span>
             </div>
-            
             <div class="w-fc-details">
                 🌧️ ${getVal(d + '.rain_sum', "mm")} (${getVal(d + '.precipitation_probability_max', "%")})<br>
                 💧 ${getVal(d + '.relative_humidity_2m_mean', "%")}<br>
                 ☀️ UV ${getVal(d + '.uv_index_max')}<br>
-                ⏱️ ${getVal(d + '.moon_phase_text')}<br>
                 <div style="margin-top:5px; display: flex; justify-content: center; gap: 4px;">
                     ${getImg(d + '.moon_phase_icon', "18px", "icon-moon")}
                     ${getImg(d + '.wind_direction_icon', "18px")}
@@ -176,7 +205,7 @@ function updateWeatherWidget() {
     }
 
     html += `</div></div>`;
-    setState('0_userdata.0.Wetter_Widget_HTML', html, true);
+    setState(targetDP, html, true);
     console.log("Weather widget: HTML successfully generated.");
 }
 
@@ -184,3 +213,4 @@ function updateWeatherWidget() {
 updateWeatherWidget();
 schedule("*/5 * * * *", updateWeatherWidget);
 on({id: dpBase + '.current.temperature_2m', change: 'any'}, updateWeatherWidget);
+on({id: forecast + '.hourly.next_hours.hour0.time', change: 'any'}, updateWeatherWidget);
