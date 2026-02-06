@@ -35,6 +35,21 @@ A modern, elegant, simple and highly informative weather widget for ioBroker **V
     ```javascript
     const locationName = 'locationName'; // <-- Enter your location name here
     ```
+4. Since v0.1.0 you can adjust the font size
+    ```javascript
+    const fontSizeCurrentLabel = '1.3rem';     // "Aktuell" / Tagesname oben - "Current" label / day name at top
+    const fontSizeTempBig = '3.8rem';          // Große Haupttemperatur - Big main temperature
+    const fontSizeDescription = '1.1rem';      // Wetterbeschreibung (z.B. "Sonnig") - Weather description (e.g. "Sunny")
+    const fontSizeInfoGrid = '0.85rem';        // Info-Items (Feuchtigkeit, Regen, UV, etc.) - Info items (humidity, rain, UV, etc.)
+    const fontSizeSunMoon = '0.8rem';          // Sonnenauf-/untergang, Wind - Sun/Moonrise/set, Wind
+    const fontSizeHourly = '0.75rem';          // Stündliche Vorhersage - Hourly forecast
+    const fontSizeHourlyRain = '0.65rem';      // Regendetails in stündlicher Vorhersage - Rain details in hourly forecast
+    const fontSizeForecastDay = '0.75rem';     // Tagesname in 6-Tage-Vorhersage - Day name in 6-day forecast
+    const fontSizeForecastText = '0.65rem';    // Wettertext in 6-Tage-Vorhersage - Weather text in 6-day forecast
+    const fontSizeForecastTempMax = '1rem';    // Maximaltemperatur in 6-Tage-Vorhersage - Maximal temperature in 6-day forecast
+    const fontSizeForecastTempMin = '0.85rem'; // Minimaltemperatur in 6-Tage-Vorhersage - Minimal temperature in 6-day forecast
+    const fontSizeForecastDetails = '0.65rem'; // Details in 6-Tage-Vorhersage - Details in 6-day forecast
+    ```
 
 ### 3. Start Script
 After saving and starting the script, the datapoint `0_userdata.0.Wetter_Widget_HTML` will be created automatically. The script updates the content every 5 minutes or immediately upon temperature changes.
@@ -65,6 +80,10 @@ The design can be adjusted directly within the script in the `<style>` section. 
 
 ---
 ## Change Log
+### **WORK IN PROGRESS**
+* (H5N1v2) change rain, rain_sum to precipitation & precipitation_sum (snow,rain,shower).
+* (H5N1v2) feat. Added section for adjusting font size
+
 ### v0.0.3 - 2026-02-03
 
 * (H5N1v2) feat: enhance weather widget with hourly forecast and version display
