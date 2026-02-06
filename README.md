@@ -80,7 +80,8 @@ The design can be adjusted directly within the script in the `<style>` section. 
 
 ---
 ## Change Log
-### **WORK IN PROGRESS**
+### v0.1.0 - 2026-02-06
+
 * (H5N1v2) change rain, rain_sum to precipitation & precipitation_sum (snow,rain,shower).
 * (H5N1v2) feat. Added section for adjusting font size
 
