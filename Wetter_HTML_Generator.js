@@ -4,6 +4,21 @@
 const locationName = 'locationName'; // <--- Your Location Name from Open-Meteo Adapter
 //////////////////////////////////////////////////
 
+// Schriftgrößen-Konfiguration - Font Sizes Configuration
+const fontSizeCurrentLabel = '1.3rem';     // "Aktuell" / Tagesname oben - "Current" label / day name at top
+const fontSizeTempBig = '3.8rem';          // Große Haupttemperatur - Big main temperature
+const fontSizeDescription = '1.1rem';      // Wetterbeschreibung (z.B. "Sonnig") - Weather description (e.g. "Sunny")
+const fontSizeInfoGrid = '0.85rem';        // Info-Items (Feuchtigkeit, Regen, UV, etc.) - Info items (humidity, rain, UV, etc.)
+const fontSizeSunMoon = '0.8rem';          // Sonnenauf-/untergang, Wind - Sun/Moonrise/set, Wind
+const fontSizeHourly = '0.75rem';          // Stündliche Vorhersage - Hourly forecast
+const fontSizeHourlyRain = '0.65rem';      // Regendetails in stündlicher Vorhersage - Rain details in hourly forecast
+const fontSizeForecastDay = '0.75rem';     // Tagesname in 6-Tage-Vorhersage - Day name in 6-day forecast
+const fontSizeForecastText = '0.65rem';    // Wettertext in 6-Tage-Vorhersage - Weather text in 6-day forecast
+const fontSizeForecastTempMax = '1rem';    // Maximaltemperatur in 6-Tage-Vorhersage - Maximal temperature in 6-day forecast
+const fontSizeForecastTempMin = '0.85rem'; // Minimaltemperatur in 6-Tage-Vorhersage - Minimal temperature in 6-day forecast
+const fontSizeForecastDetails = '0.65rem'; // Details in 6-Tage-Vorhersage - Details in 6-day forecast
+//-----------------------------------------
+
 const version = '0.0.3';
 const dpBase = 'open-meteo-weather.0.' + locationName + '.weather';
 const forecast = dpBase + '.forecast';
@@ -81,11 +96,11 @@ function updateWeatherWidget() {
             margin-bottom: 20px;
             border: 1px solid rgba(255,255,255,0.1);
         }
-        .w-temp-big { font-size: 3.8rem; font-weight: 900; color: #fbbf24; line-height: 1; }
-        .w-desc { font-size: 1.1rem; color: #38bdf8; font-weight: 600; }
-        .w-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.85rem; margin-top: 10px; }
+        .w-temp-big { font-size: ${fontSizeTempBig}; font-weight: 900; color: #fbbf24; line-height: 1; }
+        .w-desc { font-size: ${fontSizeDescription}; color: #38bdf8; font-weight: 600; }
+        .w-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: ${fontSizeInfoGrid}; margin-top: 10px; }
         .w-info-item { background: rgba(0,0,0,0.2); padding: 6px 10px; border-radius: 10px; display: flex; align-items: center; gap: 5px; }
-        .w-sun-moon { font-size: 0.8rem; line-height: 1.6; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 15px; }
+        .w-sun-moon { font-size: ${fontSizeSunMoon}; line-height: 1.6; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 15px; }
 
         .w-hourly {
             display: grid;
@@ -96,10 +111,10 @@ function updateWeatherWidget() {
             padding: 10px;
             border-radius: 15px;
         }
-        .w-h-item { text-align: center; font-size: 0.75rem; }
+        .w-h-item { text-align: center; font-size: ${fontSizeHourly}; }
         .w-h-time { font-weight: bold; color: #38bdf8; }
         .w-h-temp { font-weight: bold; color: #fbbf24; display: block; }
-        .w-h-rain { font-size: 0.65rem; color: #94a3b8; }
+        .w-h-rain { font-size: ${fontSizeHourlyRain}; color: #94a3b8; }
 
         .w-forecast {
             display: grid;
@@ -116,18 +131,18 @@ function updateWeatherWidget() {
             flex-direction: column;
             justify-content: space-between;
         }
-        .w-fc-name { font-weight: bold; color: #38bdf8; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 2px; }
-        .w-fc-text { font-size: 0.65rem; color: #94a3b8; height: 2.2em; overflow: hidden; display: flex; align-items: center; justify-content: center; line-height: 1.1; margin-bottom: 5px; }
-        .w-fc-temp-max { color: #f87171; font-weight: bold; font-size: 1rem; display: block; }
-        .w-fc-temp-min { color: #60a5fa; font-size: 0.85rem; display: block; margin-bottom: 5px; }
-        .w-fc-details { font-size: 0.65rem; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 8px; padding-top: 8px; }
+        .w-fc-name { font-weight: bold; color: #38bdf8; font-size: ${fontSizeForecastDay}; text-transform: uppercase; margin-bottom: 2px; }
+        .w-fc-text { font-size: ${fontSizeForecastText}; color: #94a3b8; height: 2.2em; overflow: hidden; display: flex; align-items: center; justify-content: center; line-height: 1.1; margin-bottom: 5px; }
+        .w-fc-temp-max { color: #f87171; font-weight: bold; font-size: ${fontSizeForecastTempMax}; display: block; }
+        .w-fc-temp-min { color: #60a5fa; font-size: ${fontSizeForecastTempMin}; display: block; margin-bottom: 5px; }
+        .w-fc-details { font-size: ${fontSizeForecastDetails}; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 8px; padding-top: 8px; }
         .icon-moon { filter: drop-shadow(0 0 3px #fff); }
     </style>
 
     <div class="w-container">
         <div class="w-header">
             <div style="text-align: center;">
-                <div style="font-size: 1.3rem; font-weight: bold;">${lang.current} / ${getVal(forecast + '.day0.name_day')}</div>
+                <div style="font-size: ${fontSizeCurrentLabel}; font-weight: bold;">${lang.current} / ${getVal(forecast + '.day0.name_day')}</div>
                 ${getImg(dpBase + '.current.icon_url', "80px")}
                 <div class="w-desc">${getVal(dpBase + '.current.weather_text')}</div>
             </div>
@@ -139,7 +154,7 @@ function updateWeatherWidget() {
                 </div>
                 <div class="w-info-grid">
                     <div class="w-info-item">💧 ${getVal(dpBase + '.current.relative_humidity_2m', "%")}</div>
-                    <div class="w-info-item">🌧️ ${getVal(forecast + '.day0.rain_sum', "mm")}</div>
+                    <div class="w-info-item">🌧️ ${getVal(forecast + '.day0.precipitation_sum', "mm")}</div>
                     <div class="w-info-item">☀️ UV ${getVal(forecast + '.day0.uv_index_max')}</div>
                     <div class="w-info-item">⏱️ ${getVal(forecast + '.day0.sunshine_duration', "h")}</div>
                 </div>
@@ -168,7 +183,7 @@ function updateWeatherWidget() {
                 ${getImg(hPath + '.icon_url', "30px")}
                 <span class="w-h-temp">${getVal(hPath + '.temperature_2m', "°")}</span>
                 <span class="w-h-rain">
-                    🌧️${getVal(hPath + '.precipitation_probability', "%")} / ${getVal(hPath + '.rain', "mm")}
+                    🌧️${getVal(hPath + '.precipitation_probability', "%")} / ${getVal(hPath + '.precipitation', "mm")}
                 </span>
             </div>
         `;
@@ -191,7 +206,7 @@ function updateWeatherWidget() {
                 <span class="w-fc-temp-min">${getVal(d + '.temperature_2m_min', "°")}</span>
             </div>
             <div class="w-fc-details">
-                🌧️ ${getVal(d + '.rain_sum', "mm")} (${getVal(d + '.precipitation_probability_max', "%")})<br>
+                🌧️ ${getVal(d + '.precipitation_sum', "mm")} (${getVal(d + '.precipitation_probability_max', "%")})<br>
                 💧 ${getVal(d + '.relative_humidity_2m_mean', "%")}<br>
                 ☀️ UV ${getVal(d + '.uv_index_max')}<br>
                 <div style="margin-top:5px; display: flex; justify-content: center; gap: 4px;">
