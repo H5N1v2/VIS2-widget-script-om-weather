@@ -208,7 +208,7 @@ function updateWeatherWidget() {
             <div class="w-fc-details">
                 🌧️ ${getVal(d + '.precipitation_sum', "mm")} (${getVal(d + '.precipitation_probability_max', "%")})<br>
                 💧 ${getVal(d + '.relative_humidity_2m_mean', "%")}<br>
-                ☀️ UV ${getVal(d + '.uv_index_max')}<br>
+                ☀️ ${getVal(d + '.sunshine_duration', "h")}<br>
                 <div style="margin-top:5px; display: flex; justify-content: center; gap: 4px;">
                     ${getImg(d + '.moon_phase_icon', "18px", "icon-moon")}
                     ${getImg(d + '.wind_direction_icon', "18px")}
