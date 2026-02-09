@@ -1,8 +1,12 @@
-// version: 0.1.0
+// version: 0.2.0
 
 //////////////////////////////////////////////////
 const locationName = 'locationName'; // <--- Your Location Name from Open-Meteo Adapter
 //////////////////////////////////////////////////
+
+//Vorhersage Tage/Stunden Konfiguieren - Forecast days/hours Configuration
+const hourlyForecastHours = 6; // Anzahl der Stunden in der stündlichen Vorhersage (max. 16) - Number of hours in hourly forecast (max. 16)
+const dailyForecastDays = 6;    // Anzahl der Tage in der Tagesvorhersage (max. 24) - Number of days in daily forecast (max. 24)
 
 // Schriftgrößen-Konfiguration - Font Sizes Configuration
 const fontSizeCurrentLabel = '1.3rem';     // "Aktuell" / Tagesname oben - "Current" label / day name at top
@@ -19,7 +23,7 @@ const fontSizeForecastTempMin = '0.85rem'; // Minimaltemperatur in 6-Tage-Vorher
 const fontSizeForecastDetails = '0.65rem'; // Details in 6-Tage-Vorhersage - Details in 6-day forecast
 //-----------------------------------------
 
-const version = '0.1.0';
+const version = '0.2.0';
 const dpBase = 'open-meteo-weather.0.' + locationName + '.weather';
 const forecast = dpBase + '.forecast';
 const targetDP = '0_userdata.0.Wetter_Widget_HTML';
@@ -104,7 +108,7 @@ function updateWeatherWidget() {
 
         .w-hourly {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(${hourlyForecastHours}, 1fr);
             gap: 8px;
             margin-bottom: 20px;
             background: rgba(0,0,0,0.15);
@@ -118,7 +122,7 @@ function updateWeatherWidget() {
 
         .w-forecast {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(${dailyForecastDays}, 1fr);
             gap: 10px;
         }
         .w-fc-day {
@@ -175,7 +179,7 @@ function updateWeatherWidget() {
         <div class="w-hourly">
     `;
 
-    for (let h = 0; h <= 5; h++) {
+    for (let h = 0; h <= hourlyForecastHours -1; h++) {
         let hPath = forecast + '.hourly.next_hours.hour' + h;
         html += `
             <div class="w-h-item">
@@ -194,7 +198,7 @@ function updateWeatherWidget() {
         <div class="w-forecast">
     `;
 
-    for (let i = 1; i <= 6; i++) {
+    for (let i = 1; i <= dailyForecastDays; i++) {
         let d = forecast + '.day' + i;
         html += `
         <div class="w-fc-day">

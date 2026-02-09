@@ -50,6 +50,13 @@ A modern, elegant, simple and highly informative weather widget for ioBroker **V
     const fontSizeForecastTempMin = '0.85rem'; // Minimaltemperatur in 6-Tage-Vorhersage - Minimal temperature in 6-day forecast
     const fontSizeForecastDetails = '0.65rem'; // Details in 6-Tage-Vorhersage - Details in 6-day forecast
     ```
+5. Since v0.2.0 you can adjust the forecast Hours and Days   
+    ```javascript
+    const hourlyForecastHours = 6; // Anzahl der Stunden in der stündlichen Vorhersage (max. 16) - Number of hours in hourly forecast (max. 16)
+    const dailyForecastDays = 6;    // Anzahl der Tage in der Tagesvorhersage (max. 24) - Number of days in daily forecast (max. 24)
+
+    ```
+   Note: To ensure the widget looks right, experiment with the settings until it fits. The more hours or days you want to display, the wider the widget will be. 
 
 ### 3. Start Script
 After saving and starting the script, the datapoint `0_userdata.0.Wetter_Widget_HTML` will be created automatically. The script updates the content every 5 minutes or immediately upon temperature changes.
@@ -79,7 +86,11 @@ The design can be adjusted directly within the script in the `<style>` section. 
 * `Weather widget: HTML successfully generated.`: Confirmation of a successful update in the ioBroker log.
 
 ---
-## Change Log
+## Changelog
+### v0.2.0 - 2026-02-09
+
+* (H5N1v2) feat: Added section for adjusting forecast hours and days
+
 ### v0.1.0 - 2026-02-06
 
 * (H5N1v2) change rain, rain_sum to precipitation & precipitation_sum (snow,rain,shower).
