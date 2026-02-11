@@ -26,7 +26,7 @@ const fontSizeForecastDetails = '0.65rem'; // Details in 6-Tage-Vorhersage - Det
 const version = '0.2.0';
 const dpBase = 'open-meteo-weather.0.' + locationName + '.weather';
 const forecast = dpBase + '.forecast';
-const targetDP = '0_userdata.0.Wetter_Widget_HTML';
+const targetDP = '0_userdata.0.Wetter_Widget_HTML_' + locationName;
 
 // Sprach-Check für ioBroker
 let sysLang = 'de';
