@@ -87,7 +87,8 @@ The design can be adjusted directly within the script in the `<style>` section. 
 
 ---
 ## Changelog
-### **WORK IN PROGRESS**
+### v0.3.0 - 2026-02-11
+
 * (Homoran) add: update target data point to include location name for weather widget (multilocation support)
 
 ### v0.2.0 - 2026-02-09
