@@ -71,7 +71,7 @@ Integration into VIS2 is done via a standard HTML widget:
 2.  Select the **"HTML"** widget (Standard Widget) and place it on your view.
 3.  Enter the following binding into the **HTML** field in the property panel:
     ```text
-    {0_userdata.0.Wetter_Widget_HTML}
+    {0_userdata.0.Wetter_Widget_HTML_locationName}
     ```
 4.  Adjust the size of the widget (a width of approx. 600px - 800px is recommended for the forecast view).
 
@@ -87,6 +87,9 @@ The design can be adjusted directly within the script in the `<style>` section. 
 
 ---
 ## Changelog
+### **WORK IN PROGRESS**
+* (Homoran) add: update target data point to include location name for weather widget (multilocation support)
+
 ### v0.2.0 - 2026-02-09
 
 * (H5N1v2) feat: Added section for adjusting forecast hours and days
