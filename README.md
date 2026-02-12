@@ -58,6 +58,8 @@ A modern, elegant, simple and highly informative weather widget for ioBroker **V
     ```
    Note: To ensure the widget looks right, experiment with the settings until it fits. The more hours or days you want to display, the wider the widget will be. 
 
+6. `Wetter_HTML_Generator_with_clock.js` is identical to `Wetter_HTML_Generator.js` but includes an additional clock (requested by a user on the ioBroker forum). The update interval is set to 1 minute to support the clock display.
+
 ### 3. Start Script
 After saving and starting the script, the datapoint `0_userdata.0.Wetter_Widget_HTML` will be created automatically. The script updates the content every 5 minutes or immediately upon temperature changes.
 
@@ -87,6 +89,10 @@ The design can be adjusted directly within the script in the `<style>` section. 
 
 ---
 ## Changelog
+### **WORK IN PROGRESS**
+* (H5N1v2) added additional script `Wetter_HTML_Generator_with_clock.js` featuring an analog clock (user request)
+* (H5N1v2) add location and date display for multilocation support to `Wetter_HTML_Generator.js` & `Wetter_HTML_Generator_with_clock.js` widget (user request)
+
 ### v0.3.0 - 2026-02-11
 
 * (Homoran) add: update target data point to include location name for weather widget (multilocation support)
