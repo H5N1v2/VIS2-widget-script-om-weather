@@ -7,6 +7,11 @@ A modern, elegant, simple and highly informative weather widget for ioBroker **V
 
 ![Widget Screenshot](img/screenshot.png)
 
+* with clock
+
+![Widget Screenshot](img/screenshot_clock.png)
+
+
 ## ✨ Features
 
 * **Real-time Display:** Current temperature, weather condition (text & icon), humidity, rain amount, and UV index.
