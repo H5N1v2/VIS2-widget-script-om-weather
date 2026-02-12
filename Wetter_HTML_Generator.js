@@ -1,4 +1,4 @@
-// version: 0.3.0
+// version: 0.4.0
 
 //////////////////////////////////////////////////
 const locationName = 'locationName'; // <--- Your Location Name from Open-Meteo Adapter
@@ -23,7 +23,7 @@ const fontSizeForecastTempMin = '0.85rem'; // Minimaltemperatur in 6-Tage-Vorher
 const fontSizeForecastDetails = '0.65rem'; // Details in 6-Tage-Vorhersage - Details in 6-day forecast
 //-----------------------------------------
 
-const version = '0.3.0';
+const version = '0.4.0';
 const dpBase = 'open-meteo-weather.0.' + locationName + '.weather';
 const forecast = dpBase + '.forecast';
 const targetDP = '0_userdata.0.Wetter_Widget_HTML_' + locationName;

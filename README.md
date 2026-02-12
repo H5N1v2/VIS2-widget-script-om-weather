@@ -89,7 +89,8 @@ The design can be adjusted directly within the script in the `<style>` section. 
 
 ---
 ## Changelog
-### **WORK IN PROGRESS**
+### v0.4.0 - 2026-02-12
+
 * (H5N1v2) added additional script `Wetter_HTML_Generator_with_clock.js` featuring an analog clock (user request)
 * (H5N1v2) add location and date display for multilocation support to `Wetter_HTML_Generator.js` & `Wetter_HTML_Generator_with_clock.js` widget (user request)
 
