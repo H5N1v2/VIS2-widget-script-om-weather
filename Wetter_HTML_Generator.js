@@ -147,6 +147,8 @@ function updateWeatherWidget() {
         <div class="w-header">
             <div style="text-align: center;">
                 <div style="font-size: ${fontSizeCurrentLabel}; font-weight: bold;">${lang.current} / ${getVal(forecast + '.day0.name_day')}</div>
+                <div style="font-size: ${fontSizeForecastDay};  font-weight: bold;"> ${(locationName)}</div>
+                <div style="font-size: ${fontSizeForecastDay};  font-weight: bold;"> ${getVal(forecast + '.day0.time')}</div>
                 ${getImg(dpBase + '.current.icon_url', "80px")}
                 <div class="w-desc">${getVal(dpBase + '.current.weather_text')}</div>
             </div>
