@@ -76,9 +76,11 @@ Integration into VIS2 is done via a standard HTML widget:
 
 1.  Open the **VIS2 Editor**.
 2.  Select the **"HTML"** widget (Standard Widget) and place it on your view.
-3.  Enter the following binding into the **HTML** field in the property panel:
+3.  Enter the following binding into the **HTML** field in the property panel,
+    $\color{orange}{\text{ NOTE:}}$ enter your location name:
+    
     ```text
-    {0_userdata.0.Wetter_Widget_HTML_locationName}
+    {0_userdata.0.Wetter_Widget_HTML_yourLOCATIONname}
     ```
 4.  Adjust the size of the widget (a width of approx. 600px - 800px is recommended for the forecast view).
 
